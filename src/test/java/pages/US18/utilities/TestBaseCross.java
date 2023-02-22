@@ -1,4 +1,4 @@
-package utilities;
+package pages.US18.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
