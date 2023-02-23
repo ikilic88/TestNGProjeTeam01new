@@ -6,6 +6,5 @@ public class Test01 {
 
         System.out.println("Ahmet Cann");
 
-        System.out.println("Conflict almak istiyorum..");
     }
 }
