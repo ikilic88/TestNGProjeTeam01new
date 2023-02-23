@@ -141,5 +141,39 @@ public class ReusableMethods {
                     "Timeout waiting for Page Load Request to complete after " + timeout + " seconds");
         }
     }
+
+    //    SCROLLINTOVIEWJS
+    public static void  scrollIntoViewJS (WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].scrollIntoView(true);",element);
+    }
+
+    //   SCREENSHOTS
+    public static void takeScreenShotOfPage() throws IOException {
+//        1. Take screenshot
+        File image = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+
+//       2. Save screenshot
+//        getting the current time as string to use in teh screenshot name, previous screenshots will be kept
+        String currentTime = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+
+//        Path of screenshot save folder               folder / folder    /file name
+        String path = System.getProperty("user.dir")+"/test-output/Screenshots/"+currentTime+"image.png";
+        FileUtils.copyFile(image,new File(path));
+
+    }
+
+    // BELİRLİ BİR ELEMENTE JS EXECUTOR ILE TIKLAMAK
+    public static void clickByJS(WebElement element){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();",element);
+    }
+
+    // SAYFANIN EN USTUNE CIKMAK
+    public static void scrollTopJS(){
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
+
+    }
 }
 
