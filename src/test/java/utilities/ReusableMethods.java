@@ -1,4 +1,4 @@
-package pages.US18.utilities;
+package utilities;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -142,3 +142,4 @@ public class ReusableMethods {
         }
     }
 }
+
