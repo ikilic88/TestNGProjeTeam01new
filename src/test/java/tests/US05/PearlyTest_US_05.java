@@ -461,5 +461,31 @@ public class PearlyTest_US_05 {
         // Sayfayı kapatalım
         Driver.closeDriver();
     }
+
+    // İLK SİFREYE DONUS YAPILDI.
+    @Test
+    public void US_05_TC_10() throws IOException {
+        PearlyPage pearlyPage = new PearlyPage();
+        Driver.getDriver().get(ConfigReader.getProperty("pearly_url"));
+        pearlyPage.signIn.click();
+        pearlyPage.username.sendKeys(ConfigReader.getProperty("username"));
+        pearlyPage.password.sendKeys(ConfigReader.getProperty("missing_password"));
+        pearlyPage.login.click();
+        pearlyPage.singOut.click();
+        pearlyPage.accountDetails.click();
+        pearlyPage.firstName.clear();
+        pearlyPage.firstName.sendKeys(ConfigReader.getProperty("new_FirstName"),
+                Keys.TAB,ConfigReader.getProperty("new_LastName"),
+                Keys.TAB,ConfigReader.getProperty("new_DisplayName"),
+                Keys.TAB,ConfigReader.getProperty("email"));
+
+        pearlyPage.password1.sendKeys(ConfigReader.getProperty("missing_password"),
+                Keys.TAB,ConfigReader.getProperty("password"),
+                Keys.TAB,ConfigReader.getProperty("password"));
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("arguments[0].click();",pearlyPage.saveChanges);
+        Driver.closeDriver();
+    }
 }
 
