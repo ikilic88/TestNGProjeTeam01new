@@ -1,7 +1,8 @@
 package pages.US02;
 
 import org.openqa.selenium.support.PageFactory;
-import pages.US18.utilities.Driver;
+import utilities.Driver;
+
 
 public class PearlyMarketPage {
 
