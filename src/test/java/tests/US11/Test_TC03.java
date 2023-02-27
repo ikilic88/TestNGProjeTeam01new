@@ -3,7 +3,7 @@ package tests.US11;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.US11.PearlyMarketPage;
+import pages.US11.PearlyMarketPage11;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
@@ -14,7 +14,7 @@ public class Test_TC03 {
 
     @Test
     public void testTC03() {
-        PearlyMarketPage pearlyPage = new PearlyMarketPage();
+        PearlyMarketPage11 pearlyPage = new PearlyMarketPage11();
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 
         //Vendor pearlymarket sayfa url`sine gider

@@ -1,9 +1,13 @@
 package tests.US03;
 
+
+
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
+
 import org.testng.annotations.Test;
 import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
@@ -15,6 +19,19 @@ public class TC_01 {
     @Test
     public void TC_01() {
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
+
+
+        //Kullanici pearlymarket sitesine gider
+        Driver.getDriver().get(ConfigReader.getProperty("PearlyMarketUrl"));
+        ReusableMethods.waitFor(2);
+
+        //Kullanici "Sign In" butonuna tiklar
+        pearlyMarketPage03.girisyap.click();
+
+        //Kullanici username veya email adresini ve sifresini yazar
+        pearlyMarketPage03.username.sendKeys(ConfigReader.getProperty("pearlyDogruMail"));
+        pearlyMarketPage03.password.sendKeys(ConfigReader.getProperty("pearlyDogruSifre"));
+        pearlyMarketPage03.secondSignInButton.click();
 
         //Bu method billing add kismina kadar bizi goturecek
         pearlyMarketPage03.upToBillingAddClick();
@@ -39,6 +56,7 @@ public class TC_01 {
         ReusableMethods.clickByJS(pearlyMarketPage03.saveAddressButton);
         //Kullanici Address changed successfully yazisini gorur
         Assert.assertTrue(pearlyMarketPage03.saveAddressSuccessfully.isDisplayed());
+
 
 
 
