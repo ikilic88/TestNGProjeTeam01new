@@ -1,42 +1,23 @@
 package tests.US03;
 
-
-
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_01 {
+public class TC_10 {
 
     @Test
-    public void TC_01() {
+    public void TC_10() {
+
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
-
-
-        //Kullanici pearlymarket sitesine gider
-        Driver.getDriver().get(ConfigReader.getProperty("PearlyMarketUrl"));
-        ReusableMethods.waitFor(2);
-
-        //Kullanici "Sign In" butonuna tiklar
-        pearlyMarketPage03.girisyap.click();
-
-        //Kullanici username veya email adresini ve sifresini yazar
-        pearlyMarketPage03.username.sendKeys(ConfigReader.getProperty("pearlyDogruMail"));
-        pearlyMarketPage03.password.sendKeys(ConfigReader.getProperty("pearlyDogruSifre"));
-        pearlyMarketPage03.secondSignInButton.click();
 
         //Bu method billing add kismina kadar bizi goturecek
         pearlyMarketPage03.upToBillingAddClick();
-        //Kullanici First Name girer  -- Kullanici Last Name girer
-        pearlyMarketPage03.firstName.sendKeys(ConfigReader.getProperty("ahmetFirstName"));
+        //Kullanici hatali First Name girer  -- Kullanici Last Name girer
+        pearlyMarketPage03.firstName.sendKeys(ConfigReader.getProperty("ahmetWrongFirstName"));
         pearlyMarketPage03.lastName.sendKeys(ConfigReader.getProperty("ahmetLastName"));
         //Kullanici Country/Region girer
         Select select = new Select(pearlyMarketPage03.selectCountry);
@@ -56,10 +37,5 @@ public class TC_01 {
         ReusableMethods.clickByJS(pearlyMarketPage03.saveAddressButton);
         //Kullanici Address changed successfully yazisini gorur
         Assert.assertTrue(pearlyMarketPage03.saveAddressSuccessfully.isDisplayed());
-
-
-
-
-
     }
 }

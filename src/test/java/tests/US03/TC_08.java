@@ -1,37 +1,17 @@
 package tests.US03;
 
-
-
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_01 {
+public class TC_08 {
 
     @Test
-    public void TC_01() {
+    public void TC_08() {
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
-
-
-        //Kullanici pearlymarket sitesine gider
-        Driver.getDriver().get(ConfigReader.getProperty("PearlyMarketUrl"));
-        ReusableMethods.waitFor(2);
-
-        //Kullanici "Sign In" butonuna tiklar
-        pearlyMarketPage03.girisyap.click();
-
-        //Kullanici username veya email adresini ve sifresini yazar
-        pearlyMarketPage03.username.sendKeys(ConfigReader.getProperty("pearlyDogruMail"));
-        pearlyMarketPage03.password.sendKeys(ConfigReader.getProperty("pearlyDogruSifre"));
-        pearlyMarketPage03.secondSignInButton.click();
 
         //Bu method billing add kismina kadar bizi goturecek
         pearlyMarketPage03.upToBillingAddClick();
@@ -48,18 +28,13 @@ public class TC_01 {
         //Kullanici State girer
         Select select1 = new Select(pearlyMarketPage03.state);
         select1.selectByVisibleText("Michigan");
-        //Kullanici ZIP Code girer
-        pearlyMarketPage03.zipCode.sendKeys(ConfigReader.getProperty("ahmetZipCode"));
+        //Kullanici ZIP Code'u bos birakir
+
         //Kullanici Phone girer
         pearlyMarketPage03.phone.sendKeys(ConfigReader.getProperty("ahmetPhone"));
         //Kullanici SAVE ADDRESS butonuna tiklar
         ReusableMethods.clickByJS(pearlyMarketPage03.saveAddressButton);
-        //Kullanici Address changed successfully yazisini gorur
-        Assert.assertTrue(pearlyMarketPage03.saveAddressSuccessfully.isDisplayed());
-
-
-
-
-
+        //Kullanici hata mesajini gorur
+        Assert.assertTrue(pearlyMarketPage03.saveAddressError.isDisplayed());
     }
 }
