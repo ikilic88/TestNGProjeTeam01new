@@ -5,9 +5,9 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 import org.openqa.selenium.WebElement;
 
-public class PearlyMarketPage {
+public class PearlyMarketPage11 {
 
-    public PearlyMarketPage(){PageFactory.initElements(Driver.getDriver(),this);}
+    public PearlyMarketPage11(){PageFactory.initElements(Driver.getDriver(),this);}
 //ortak
     @FindBy(xpath = "//*[@id=\"header\"]/div/div/div/div/div/div[9]/div/div/a[1]/span")
     public WebElement singInButton;
@@ -49,31 +49,31 @@ public class PearlyMarketPage {
 
 
   //TC03
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[2]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[2]")
     public WebElement dashboardstoreManager;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[3]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[3]")
     public WebElement dashboardOrders;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[4]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[4]")
     public WebElement dashboardDownloads;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[5]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[5]")
     public WebElement dashboardAddresses;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[6]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[6]")
     public WebElement dashboardAccountDetails;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[7]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[7]")
     public WebElement dashboardWishlist;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[8]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[8]")
     public WebElement dashboarSupportTickets;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[9]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[9]")
     public WebElement dashboarFollowings;
 
-    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[10]/a")
+    @FindBy(xpath="//*[@id=\"main\"]/div/div/div/div/div/div/nav/ul/li[10]")
     public WebElement dashboardLogOut;
 
 

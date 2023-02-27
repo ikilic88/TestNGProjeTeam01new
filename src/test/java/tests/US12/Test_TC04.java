@@ -5,20 +5,14 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import pages.US12.PearlyMarketPage12;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class Test_TC01 {
-    //"First name, Last name, Country/Region, Street address,
-//Town / City, State, ZIP Code ve Phone girilmeli
-
-
-
+public class Test_TC04 {
     @Test
-    public void testTC01() {
+    public void testTC04() throws Exception{
 
         PearlyMarketPage12 pearly12 = new PearlyMarketPage12();
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
@@ -30,68 +24,56 @@ public class Test_TC01 {
         pearly12.singInButton.click();
 
         //Vendor gecerli mail adresi ve password girer
-        pearly12.usernameEsra.click();
         pearly12.usernameEsra.sendKeys(ConfigReader.getProperty("usernameEsra"));
-        pearly12.passwordEsra.click();
         pearly12.passwordEsra.sendKeys(ConfigReader.getProperty("passwordEsra"));
 
         //Vendor giris yapmak icin sign in butonuna tiklar
         pearly12.submitButton.click();
 
-        //Vendor sistemde my account sayfasinigoruntuler//sayfayi asagi alir
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");//sayfayi
+        //Vendor my account sayfasini goruntuler
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");//sayfayi asagi alir
         ReusableMethods.waitFor(2);
+
         pearly12.myAccount.click();
         ReusableMethods.waitFor(2);
 
-        //Vendor sistemde my account sayfasinigoruntuler
-        Assert.assertTrue(pearly12.myAccountPage.isDisplayed());
-
-        //Vendor dashboard altinda adresses butonuna tiklar
+        //Vendor dashboard altinda adresses butonunu tiklar
         pearly12.dashboardAddresses.click();
         ReusableMethods.waitFor(2);
 
         //Vendor ADD yazisini tiklar
         pearly12.AddButton.click();
 
-        //Vendor First Name girebilir
+        //Vendor First Name girer
         pearly12.FirstName.sendKeys(ConfigReader.getProperty("firstname_ash"));
-        ReusableMethods.waitFor(2);
 
-        //Vendor Last Name girebilir
+        //Vendor Last Name girer
         pearly12.LastName.sendKeys(ConfigReader.getProperty("lastname_ash"));
-        ReusableMethods.waitFor(2);
 
-        //Vendor Country/Region girebilir
+        //Vendor Country/Region girer
         Select selectcountry = new Select(pearly12.selectCauntry);
         selectcountry.selectByVisibleText("United State (US)");
-        ReusableMethods.waitFor(2);
 
-        //Vendor Street address girebilir
+        //Vendor Street address girer
         pearly12.streetAddress1.sendKeys(ConfigReader.getProperty("street_ash"));
 
-        //Vendor Town / City girebilir
+        //Vendor Town / City girer
         pearly12.city.sendKeys(ConfigReader.getProperty("city_ash"));
 
-        //Vendor State girebilir
+        //Vendor State girer
         Select selectstate = new Select(pearly12.selectState);
         selectstate.selectByVisibleText("New York");
 
-        //Vendor Postcode girebilir
-        pearly12.postCode.sendKeys(ConfigReader.getProperty("postcode_ash"));
+        //Vendor Postcode kismina ozel karakter girer
+        pearly12.postCode.sendKeys("@", Keys.ENTER);
 
-
-        //Vendor Phone girebilir
+        //Vendor Phone girer
         pearly12.PhoneNumber.sendKeys(ConfigReader.getProperty("phone_ash"));
 
+        //Vendor SAVE ADDRESS butonuna tiklar
+        pearly12.saveButton.click();
 
+        //Vendor Postcode is a required field. yazisini gorur ve ozel karakter girilemedigini dogrular
 
     }
-
-
-
-
-
 }
-
-
