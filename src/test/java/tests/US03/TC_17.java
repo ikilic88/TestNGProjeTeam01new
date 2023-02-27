@@ -1,19 +1,16 @@
 package tests.US03;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_01 {
+public class TC_17 {
 
     @Test
-    public void TC_01() {
+    public void TC_17() {
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
 
         //Bu method billing add kismina kadar bizi goturecek
@@ -39,9 +36,5 @@ public class TC_01 {
         ReusableMethods.clickByJS(pearlyMarketPage03.saveAddressButton);
         //Kullanici Address changed successfully yazisini gorur
         Assert.assertTrue(pearlyMarketPage03.saveAddressSuccessfully.isDisplayed());
-
-
-
-
     }
 }
