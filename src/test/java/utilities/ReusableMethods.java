@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static utilities.Driver.driver;
+
 public class ReusableMethods {
     //========ScreenShot(Sayfanın resmini alma)=====//
     public static String getScreenshot(String name) throws IOException {
@@ -174,6 +176,12 @@ public class ReusableMethods {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
 
+    }
+
+    //SAYFANIN EN ALTINA İNMEK
+    public static void scrollDownActions() {
+//        Actions actions = new Actions(driver);
+        new Actions(driver).sendKeys(Keys.PAGE_DOWN).perform();
     }
 }
 
