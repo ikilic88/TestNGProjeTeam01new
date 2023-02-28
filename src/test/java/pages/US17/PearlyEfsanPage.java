@@ -6,25 +6,38 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 
-public class PearlyMarketPage {
+public class PearlyEfsanPage {
 
-    public PearlyMarketPage(){
+
+    public PearlyEfsanPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "(//*[@href='https://pearlymarket.com/my-account-2/'])[3]")
+   @FindBy(xpath = "//*[@name='login']")
+   public WebElement signIn;
+
+    @FindBy(xpath = "//*[@name='username']")
+    public WebElement userName;
+
+    @FindBy(name = "password")
+    public WebElement Password;
+
+    @FindBy(xpath = "//*[@name='login']")
+    public WebElement login;
+
+    @FindBy(xpath = "//*[@id='menu-item-1079']")
     public WebElement myAccountButton;
 
     @FindBy(xpath = "//*[@href='https://pearlymarket.com/store-manager/']")
     public WebElement storeManagerButton;
 
-    @FindBy(xpath = "//*[@class='wcfm_menu_item active']")
+    @FindBy(xpath = "//a[@href='https://pearlymarket.com/store-manager/products/']")
     public WebElement productsButton;
 
-    @FindBy(xpath = "(//*[@href='https://pearlymarket.com/store-manager/products-manage/'])[1]")
+    @FindBy(id = "add_new_product_dashboard")
     public WebElement addNewButton;
 
-    @FindBy(xpath = "//*[@name='product_type']")
+    @FindBy(xpath = "//*[@id='product_type']")
     public WebElement simpleProductDropdownonclick;
 
     @FindBy(xpath = "//*[@value='variable']")
@@ -33,7 +46,7 @@ public class PearlyMarketPage {
     @FindBy(xpath = "//*[@value='external']")
     public WebElement externalAffiliateProductDropdownclick;
 
-    @FindBy(xpath = "//*[@name='attributes[1][is_active]']")
+    @FindBy(xpath = "//*[@id='attributes_is_active_1']")
     public WebElement colorBoxButton;
 
     @FindBy(xpath = "//*[@name='attributes[2][is_active]']")
@@ -57,8 +70,11 @@ public class PearlyMarketPage {
     @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[1]")
     public WebElement colorTextBox;
 
-    @FindBy(xpath = "(//*[@class='select2-selection__rendered'])[1]")
+    @FindBy(xpath = "(//*[@class='select2 select2-container select2-container--default select2-container--below select2-container--focus']")
     public WebElement sizeTextBox;
+
+    @FindBy(xpath = "(//*[@class='page_collapsible_content_holder'])[5]")
+    public WebElement attributesButton;
 
     @FindBy(xpath = "(//*[@class='page_collapsible_content_holder'])[6]")
     public WebElement variationsButton;
@@ -115,7 +131,26 @@ public class PearlyMarketPage {
     @FindBy(xpath = "//*[@name='submit-data']")
     public WebElement submitButton;
 
+    @FindBy(id = "wcfm_products_manage_form_advanced_head")
+    public WebElement advencedButton;
 
+    @FindBy(xpath = "//*[@class='button wcfm_add_attribute_term wcfm_select_all_attributes']")
+    public WebElement selectAllButton;
+
+    @FindBy(xpath = "(//*[@class='odd'])[1]")
+    public WebElement addedProduct;
+
+   // @FindBy(xpath = "((//*[@class='sorting_1'])[1]")
+   // public WebElement addedProduct;
+
+    @FindBy(xpath = "(//*[@id='menu-item-browse'])[2]")
+    public WebElement mediaLibraryButton;
+
+    @FindBy(xpath = "(//*[@class='thumbnail'])[1]")
+    public WebElement crocsButton;
+
+    @FindBy(xpath = "//*[@class='woocommerce-button button woocommerce-form-login__submit']")
+    public WebElement singIn2Button;
 
 
 

@@ -1,23 +1,16 @@
 package tests.US03;
 
-
-
-
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-
 import org.testng.annotations.Test;
 import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
-import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_01 {
+public class TC_07 {
 
     @Test
-    public void TC_01() {
+    public void TC_07() {
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
 
         //Bu method billing add kismina kadar bizi goturecek
@@ -32,21 +25,15 @@ public class TC_01 {
         pearlyMarketPage03.streetAddress.sendKeys(ConfigReader.getProperty("ahmetStreetAddress"));
         //Kullanici Town / City girer
         pearlyMarketPage03.town.sendKeys(ConfigReader.getProperty("ahmetTown"));
-        //Kullanici State girer
-        Select select1 = new Select(pearlyMarketPage03.state);
-        select1.selectByVisibleText("Michigan");
+        //Kullanici State'i bos birakir
+
         //Kullanici ZIP Code girer
         pearlyMarketPage03.zipCode.sendKeys(ConfigReader.getProperty("ahmetZipCode"));
         //Kullanici Phone girer
         pearlyMarketPage03.phone.sendKeys(ConfigReader.getProperty("ahmetPhone"));
         //Kullanici SAVE ADDRESS butonuna tiklar
         ReusableMethods.clickByJS(pearlyMarketPage03.saveAddressButton);
-        //Kullanici Address changed successfully yazisini gorur
-        Assert.assertTrue(pearlyMarketPage03.saveAddressSuccessfully.isDisplayed());
-
-
-
-
-
+        //Kullanici hata mesajini gorur
+        Assert.assertTrue(pearlyMarketPage03.saveAddressError.isDisplayed());
     }
 }

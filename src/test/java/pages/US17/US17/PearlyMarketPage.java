@@ -1,4 +1,4 @@
-package pages.US01;
+package pages.US17.US17;
 
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;

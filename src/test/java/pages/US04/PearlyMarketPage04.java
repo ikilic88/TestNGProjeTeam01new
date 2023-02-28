@@ -1,80 +1,47 @@
-package pages.US03;
+package pages.US04;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pages.US03.PearlyMarketPage03;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 
-public class PearlyMarketPage03 {
+public class PearlyMarketPage04 {
 
-    public PearlyMarketPage03(){
+    public PearlyMarketPage04(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//*[text()='Sign In']")
-    public WebElement signInButton;
+    @FindBy(xpath = "(//*[@class='edit btn btn-link btn-primary btn-underline mb-4'])[2]")
+    public WebElement shippingAddButton;
 
-    @FindBy(xpath = "//*[@id='username']")
-    public WebElement username;
-
-    @FindBy(xpath = "//*[@id='password']")
-    public WebElement password;
-
-    @FindBy(xpath = "//*[@name='login']")
-    public WebElement secondSignInButton;
-
-    @FindBy(xpath = "(//a[.='My Account'])[1]")
-    public WebElement myAccountButton;
-
-    @FindBy(xpath = "//*[.='Addresses']")
-    public WebElement addressesButton;
-
-    @FindBy(xpath = "(//*[@class='edit btn btn-link btn-primary btn-underline mb-4'])[1]")
-    public WebElement billingAddButton;
-
-    @FindBy(name = "billing_first_name")
+    @FindBy(name = "shipping_first_name")
     public WebElement firstName;
 
-    @FindBy(name = "billing_last_name")
+    @FindBy(name = "shipping_last_name")
     public WebElement lastName;
 
-    @FindBy(name = "billing_country")
+    @FindBy(name = "shipping_country")
     public WebElement selectCountry;
 
-    @FindBy(name = "billing_address_1")
+    @FindBy(name = "shipping_address_1")
     public WebElement streetAddress;
 
-    @FindBy(name = "billing_city")
+    @FindBy(name = "shipping_city")
     public WebElement town;
 
-    @FindBy(id = "billing_state")
+    @FindBy(id = "shipping_state")
     public WebElement state;
 
-    @FindBy(name = "billing_postcode")
+    @FindBy(name = "shipping_postcode")
     public WebElement zipCode;
 
-    @FindBy(name = "billing_phone")
-    public WebElement phone;
-
-    @FindBy(xpath = "//*[.='Save address']")
-    public WebElement saveAddressButton;
-
-    @FindBy(xpath = "//*[@class='fas fa-check']")
-    public WebElement saveAddressSuccessfully;
-
-    @FindBy(xpath = "//*[@class='fas fa-exclamation-triangle']")
-    public WebElement saveAddressError;
-
-    @FindBy(xpath = "//*[@id='billing_email']")
-    public WebElement emailBox;
-
-
-    public void upToBillingAddClick() {
+    public void upToShippingAddClick() {
         PearlyMarketPage03 pearlyMarketPage03 = new PearlyMarketPage03();
-
+        PearlyMarketPage04 pearlyMarketPage04 = new PearlyMarketPage04();
         //Kullanici pearlymarket sitesine gider
         Driver.getDriver().get(ConfigReader.getProperty("PearlyMarketUrl"));
         //Kullanici "Sign In" butonuna tiklar
@@ -91,6 +58,6 @@ public class PearlyMarketPage03 {
         //Kullanici Adresses secenegine tiklar
         pearlyMarketPage03.addressesButton.click();
         //Kullanici Billing Adress altindaki ADD secenegine tiklar
-        pearlyMarketPage03.billingAddButton.click();
+        pearlyMarketPage04.shippingAddButton.click();
     }
 }
