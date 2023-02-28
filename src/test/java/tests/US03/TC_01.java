@@ -26,7 +26,7 @@ public class TC_01 {
         ReusableMethods.waitFor(2);
 
         //Kullanici "Sign In" butonuna tiklar
-        pearlyMarketPage03.girisyap.click();
+        //pearlyMarketPage03.girisyap.click();
 
         //Kullanici username veya email adresini ve sifresini yazar
         pearlyMarketPage03.username.sendKeys(ConfigReader.getProperty("pearlyDogruMail"));
